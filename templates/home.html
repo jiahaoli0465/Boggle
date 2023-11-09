@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Boggle Home
+{% endblock %}
+
+{% block content %}
+<div class="home-content">
+    <h2>Welcome to Boggle!</h2>
+    <p>
+        Boggle is a classic word game that challenges you to find words in sequences of adjacent letters on a grid.
+    </p>
+    <p id="author"><b>Made by Jiahao Li</b></p>
+    <h3>How to Play</h3>
+    <ul>
+        <li>The game begins with a 5x5 grid of letters. Your task is to find words by chaining letters together.</li>
+        <li>Each word must be at least three letters long.</li>
+        <li>Letters must be adjacent to one another, and you cannot use a single letter tile more than once per word.</li>
+        <li>Words can be formed from letters that are horizontal, vertical, or diagonal to each other.</li>
+        <li>Try to find as many words as possible before the time runs out!</li>
+    </ul>
+    
+    <!-- <p>Your session highscores -  
+        easy: <b>0</b>
+        hard: <b>0</b>
+        impossible: <b>0</b>
+    </p> -->
+    <h3>High Scores</h1>
+    <ul id="high-scores">
+        <li>easy: {{ session['high_scores']['easy'] }}</li>
+        <li>hard: {{ session['high_scores']['hard'] }}</li>
+        <li>impossible: {{ session['high_scores']['impossible'] }}</li>
+    </ul>
+
+    <p>Choose your difficulty and Start!</p>
+
+    <div id="button-selector">
+    <button class="selector-button easy active-button" onclick="selectButton(this)" value="choice1">easy (90s)</button>
+    <button class="selector-button hard" onclick="selectButton(this)" value="choice2">hard (60s)</button>
+    <button class="selector-button impossible" onclick="selectButton(this)" value="choice3">impossible (30s)</button>
+    </div>
+    <a class="start-button">Start Game</a>
+    <!-- <button class="start-button">Start Game </button> -->
+</div>
+<script src="static/home.js"></script>
+{% endblock %}
+

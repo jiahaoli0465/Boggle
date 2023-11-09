@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+Boggle Game
+{% endblock %}
+
+{% block content %}
+
+
+<section id="boggle" data-difficulty="{{ difficulty }}">
+  <div id="leftSide"> 
+    <div id="boarddiv">
+        <table class="board">
+            <tbody>
+              {% for row in board %}
+              <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <div id="messageBoard">
+      <p><b>Message Board</b></p>
+      <p id="message"></p>
+    </div>
+  </div>
+    <div id="rightside">  
+      <div id="scores">
+        <h2>ScoreBoard</h2>
+
+        <p>High Score: 
+          <b id="highScore">{{ session['high_scores'][difficulty] }}</b> 
+          <!-- in {{ nplays }} plays -->
+        </p>
+        
+        <p>Mode: <b>{{difficulty}}</b></p>
+        <p>
+          Score: <b class="score">0</b>
+        </p>
+        <p id="secondsLeft">Seconds Left: <b class="timer"></b></p>
+          
+        
+      </div>
+      <div id="game">
+        <h3>Words</h3>
+        <form method="POST" class="add-word" autocomplete="off" id="wordForm">
+          <input name="word" class="word" autofocus placeholder="enter word">
+          <button>Enter</button>
+        </form>
+  
+        <p class="msg">
+          <!-- our JS will put messages here dynamically -->
+        </p>
+  
+        <ul class="words">
+          <!-- our JS will words here as they score -->   
+        </ul>
+      </div>
+    </div>
+</section>
+<script src="/static/app.js"></script>
+
+{% endblock %}
