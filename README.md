@@ -26,9 +26,7 @@ Welcome to the Boggle Game, a dynamic web-based version of the classic Boggle wo
 
 
 
-## Getting Started
 
-To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
